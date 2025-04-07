@@ -6,12 +6,11 @@
   "homepage": "https://https://grandlhord.github.io/lbc_site/",
   "scripts": {
     "dev": "vite",
-    "build": "npm install --legacy-peer-deps && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "vite build",
-    "deploy": "gh-pages -d dist",
-    "postinstall": "chmod +x ./node_modules/.bin/vite"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
