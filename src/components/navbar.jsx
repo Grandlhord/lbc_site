@@ -4,7 +4,8 @@ import { useState, useEffect, useRef } from "react"
 import { NavLink, useLocation } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, Heart, ChevronRight } from "lucide-react"
-import logo from "../assets/img/logo.png"
+
+const logo = '/assets/img/logo.png'
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false)

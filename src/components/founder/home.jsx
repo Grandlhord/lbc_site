@@ -11,12 +11,12 @@ import "swiper/css/pagination"
 import "swiper/css/effect-fade"
 
 // Import your images
-import pjwd1 from "../../assets/img/backgroundImages/ourstorydesktop1.jpg"
-import pjwd2 from "../../assets/img/backgroundImages/thefounderdesktop1.jpg"
+const pjwd1 =  '/assets/img/backgroundImages/ourstorydesktop1.jp'
+const pjwd2 =  '/assets/img/backgroundImages/thefounderdesktop1.'
 
-import pjwm1 from "../../assets/img/backgroundImages/foundermobile1.jpg"
-import pjwm2 from "../../assets/img/backgroundImages/foundermobile2.jpg"
-import pjwm3 from "../../assets/img/backgroundImages/foundermobile3.jpg"
+const pjwm1 =  '/assets/img/backgroundImages/foundermobile1.jpg'
+const pjwm2 =  '/assets/img/backgroundImages/foundermobile2.jpg'
+const pjwm3 =  '/assets/img/backgroundImages/foundermobile3.jpg'
 
 const desktopImages = [pjwd1, pjwd2]
 const mobileImages = [pjwm1, pjwm2, pjwm3]

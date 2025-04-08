@@ -2,7 +2,7 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import sub from "../../assets/img/backgroundImages/subscribe.jpg"
+const sub = '/assets/img/backgroundImages/subscribe.jpg'
 import { ArrowRight, Bell } from "lucide-react"
 
 export default function Subscribe() {

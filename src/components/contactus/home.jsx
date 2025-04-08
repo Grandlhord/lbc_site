@@ -4,8 +4,8 @@ import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { MessageCircle, ChevronDown, Mail } from "lucide-react"
 
-import pjwd1 from "../../assets/img/pjwd1.jpg"
-import pjwm1 from "../../assets/img/pjw1.jpg"
+const pjwd1 = '/assets/img/pjwd1.jpg'
+const pjwm1 = '/assets/img/pjw1.jpg'
 import ContactMethods from "./contactmethods"
 
 export default function Home() {

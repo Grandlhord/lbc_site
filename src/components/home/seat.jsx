@@ -3,7 +3,7 @@
 import { useRef } from "react"
 import { motion, useInView, useScroll, useTransform } from "framer-motion"
 import CountUp from "react-countup"
-import seats from "../../assets/img/backgroundImages/seats.jpeg"
+const seats = '/assets/img/backgroundImages/seats.jpeg'
 import { useNavigate } from "react-router-dom"
 
 export default function Seat() {

@@ -4,8 +4,8 @@ import { useEffect, useState, useRef } from "react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import { Play, ChevronDown } from 'lucide-react'
 
-import pjwd1 from "../../assets/img/backgroundImages/mediadesktop1.jpg"
-import pjwm1 from "../../assets/img/worker.jpg"
+const pjwd1 = '/assets/img/backgroundImages/mediadesktop1.jpg'
+const pjwm1 = '/assets/img/worker.jpg'
 
 // Custom button component to replace the shadcn import
 const Button = ({ children, className, variant = "default" }) => {

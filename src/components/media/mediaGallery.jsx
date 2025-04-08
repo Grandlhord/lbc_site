@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
-import image1 from '../../assets/img/pjw1.jpg';
-import image2 from '../../assets/img/pjwm3.jpg';
-import image3 from '../../assets/img/pjwd2.jpg';
-import image4 from '../../assets/img/pjwd4.jpg';
-import image5 from '../../assets/img/pjwd3.jpg';
-import image6 from '../../assets/img/pjwm4.jpg';
+const  image1 = '/assets/img/pjw1.jpg';
+const  image2 = '/assets/img/pjwm3.jpg';
+const  image3 = '/assets/img/pjwd2.jpg';
+const  image4 = '/assets/img/pjwd4.jpg';
 
 const galleryImages = [
   image1,

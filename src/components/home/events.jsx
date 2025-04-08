@@ -3,8 +3,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/bundle';
-import ellipse from "../../assets/img/half-bg.png"; 
-import red_potizo from "../../assets/img/flyers/red_potizo.png"
+const ellipse = '/assets/img/half-bg.png' 
+const red_potizo = '/assets/img/flyers/red_potizo.png'
 
 const Events = () => {
   const [inView, setInView] = useState(false);

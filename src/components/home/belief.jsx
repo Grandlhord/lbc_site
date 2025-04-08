@@ -3,8 +3,9 @@
 import { useRef } from "react"
 import { motion, useScroll, useTransform, useInView } from "framer-motion"
 import useWindowSize from "../../hooks/useWindowSize"
-import desktopImage1 from "../../assets/img/backgroundImages/belief.png"
-import mobileImage1 from "../../assets/img/backgroundImages/beliefinthebilemobile.jpg"
+
+const desktopImage1 = '/assets/img/backgroundImages/belief.png'
+const mobileImage1 = '/assets/img/backgroundImages/beliefinthebilemobile.jpg'
 import { useNavigate } from "react-router-dom"
 
 export default function Belief() {

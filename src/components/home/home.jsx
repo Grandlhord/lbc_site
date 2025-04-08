@@ -8,9 +8,9 @@ import useWindowSize from "../../hooks/useWindowSize"
 
 const mobileImage1 = '/assets/img/backgroundImages/welcomehomeMobilebg2.jpg';
 
-import mobileImage2 from "../../assets/img/backgroundImages/welcomehomeMobilebg1.jpg"
-import desktopImage1 from "../../assets/img/backgroundImages/homedesktopbg1.jpg"
-import desktopImage2 from "../../assets/img/backgroundImages/homedesktopbg2.png"
+const mobileImage2 = '/assets/img/backgroundImages/welcomehomeMobilebg1.jpg'
+ const  desktopImage1 = '/assets/img/backgroundImages/homedesktopbg1.jpg'
+ const  desktopImage2 = '/assets/img/backgroundImages/homedesktopbg2.png'
 
 export default function Home() {
   const containerRef = useRef(null)
