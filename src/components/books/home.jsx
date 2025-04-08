@@ -3,21 +3,19 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa"
-import { ShoppingCart, Download, ExternalLink, Info } from "lucide-react"
-import { useSearchParams } from "next/navigation"
-import { useRouter } from "next/router"
-import Link from "next/link"
+import { ShoppingCart, Download, ExternalLink, Info } from 'lucide-react'
+import { useLocation, useNavigate, Link } from "react-router-dom"
 
-const bookImage1 = "/assets/img/born_again.svg"
-const bookImage2 = "/assets/img/gifts.svg"
-const bookImage3 = "/assets/img/workofministry.svg"
+const bookImage1 = '/assets/img/born_again.svg'
+const bookImage2 = '/assets/img/gifts.svg'
+const bookImage3 = '/assets/img/workofministry.svg'
 
 export default function BooksByFounder() {
-  const [books, setBooks] = useState([])
+  const [books, setBooks] = useState([]) 
   const [activeBook, setActiveBook] = useState(null)
   const scrollRef = useRef(null)
-  const searchParams = useSearchParams()
-  const router = useRouter()
+  const location = useLocation()
+  const navigate = useNavigate()
 
   // Simulate API call with book information
   useEffect(() => {
@@ -61,13 +59,14 @@ export default function BooksByFounder() {
         },
       ]
       setBooks(placeholderBooks)
-
+      
       // Check if there's a book ID in the URL
-      const bookId = searchParams.get("id")
-
+      const params = new URLSearchParams(location.search)
+      const bookId = params.get('id')
+      
       if (bookId) {
         // Find the book with the matching ID
-        const selectedBook = placeholderBooks.find((book) => book.id === Number.parseInt(bookId))
+        const selectedBook = placeholderBooks.find(book => book.id === parseInt(bookId))
         if (selectedBook) {
           setActiveBook(selectedBook)
           // Scroll to the active book in the carousel
@@ -75,7 +74,7 @@ export default function BooksByFounder() {
             const bookElement = document.getElementById(`book-${selectedBook.id}`)
             if (bookElement && scrollRef.current) {
               const scrollLeft = bookElement.offsetLeft - scrollRef.current.offsetLeft
-              scrollRef.current.scrollTo({ left: scrollLeft, behavior: "smooth" })
+              scrollRef.current.scrollTo({ left: scrollLeft, behavior: 'smooth' })
             }
           }, 300)
         } else {
@@ -88,7 +87,7 @@ export default function BooksByFounder() {
       }
     }
     fetchBooks()
-  }, [searchParams])
+  }, [location])
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -102,11 +101,9 @@ export default function BooksByFounder() {
   // Update URL when active book changes
   useEffect(() => {
     if (activeBook) {
-      const params = new URLSearchParams(searchParams.toString())
-      params.set("id", activeBook.id.toString())
-      router.push(`/books?${params.toString()}`, undefined, { shallow: true })
+      navigate(`/books?id=${activeBook.id}`, { replace: true })
     }
-  }, [activeBook, router, searchParams])
+  }, [activeBook, navigate])
 
   // Animation variants
   const containerVariants = {
@@ -296,21 +293,21 @@ export default function BooksByFounder() {
 
                 <div className="flex flex-wrap gap-2">
                   <Link
-                    href="#"
+                    to="#"
                     className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs rounded-full transition-colors"
                   >
                     <ShoppingCart size={12} />
                     <span>Purchase Online</span>
                   </Link>
                   <Link
-                    href="#"
+                    to="#"
                     className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs rounded-full transition-colors border border-white/20"
                   >
                     <Download size={12} />
                     <span>Sample Chapter</span>
                   </Link>
                   <Link
-                    href="#"
+                    to="#"
                     className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-xs rounded-full transition-colors border border-white/20"
                   >
                     <ExternalLink size={12} />
@@ -336,3 +333,4 @@ export default function BooksByFounder() {
     </div>
   )
 }
+S
