@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "predeploy": "vite build",
     "deploy": "gh-pages -d dist",
-    "postinstall": "chmod +x ./node_modules/.bin/vite"
+    "postinstall": "node -e \"if (process.platform !== 'win32') require('child_process').execSync('chmod +x ./node_modules/.bin/vite');\""
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
@@ -23,9 +23,9 @@
     "lightbox.js-react": "^1.4.7",
     "lucide-react": "^0.474.0",
     "primereact": "^10.9.1",
-    "react": "^19.0.0-rc.1",
+    "react": "^18.2.0",
     "react-countup": "^6.5.3",
-    "react-dom": "^19.0.0-rc.1",
+    "react-dom": "^18.2.0",
     "react-icons": "^5.5.0",
     "react-leaflet": "^5.0.0",
     "react-router-dom": "^6.29.0",

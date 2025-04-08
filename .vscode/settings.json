@@ -2,5 +2,6 @@
   "files.associations": {
     "*.embeddedhtml": "html",
     "AGE.C": "cpp"
-  }
+  },
+  "git.ignoreLimitWarning": true
 }
