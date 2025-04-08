@@ -4,8 +4,8 @@ import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { Heart, ChevronDown } from "lucide-react"
 
-const pjwd1 = '/public/assets/img/pjwd1.jpg'
-const pjwm1 = '/public/assets/img/pjw1.jpg'
+const pjwd1 = '/assets/img/pjwd1.jpg'
+const pjwm1 = '/assets/img/pjw1.jpg'
 import DonationMethods from "./DonationMethod"
 
 export default function Home() {

@@ -3,12 +3,12 @@ import { X } from 'lucide-react';
 import { motion } from 'framer-motion'; 
 
 // Import motion for animations
-const image1= '/public/assets/img/pjw1.jpg';
-const image2= '/public/assets/img/pjwm3.jpg';
-const image3= '/public/assets/img/pjwd2.jpg';
-const image4= '/public/assets/img/pjwd4.jpg';
-const image5= '/public/assets/img/pjwd3.jpg';
-const image6= '/public/assets/img/pjwm4.jpg';
+const image1= '/assets/img/pjw1.jpg';
+const image2= '/assets/img/pjwm3.jpg';
+const image3= '/assets/img/pjwd2.jpg';
+const image4= '/assets/img/pjwd4.jpg';
+const image5= '/assets/img/pjwd3.jpg';
+const image6= '/assets/img/pjwm4.jpg';
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState(null);

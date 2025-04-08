@@ -5,33 +5,33 @@ import { useState, useEffect, useRef } from "react"
 import { Search, MapPin } from 'lucide-react'
 
 // Import images
-const CEDelademAmekudzi = '/public/assets/img/church_leaders/CEDelademAmekudzi.jpg';
-const CEElderEssienNana = '/public/assets/img/church_leaders/CEELderEssienNana.jpg';
-const CEElderProsperAsamoah = '/public/assets/img/church_leaders/CEELderProsperAsamoah.jpg';
-const CEFredAgyemang = '/public/assets/img/church_leaders/CEFredAgyemang.jpg';
-const CEPeterHaginWealth = '/public/assets/img/church_leaders/CEPeterHagin-Wealth.jpg';
-const ChiefElderCharlesFiadjoe = '/public/assets/img/church_leaders/ChiefElderCharlesFiadjoe.jpg';
-const FrankTettehJunior = '/public/assets/img/church_leaders/FrankTettehJunior.jpg';
-const LadyPastorAlexaHaginWealth = '/public/assets/img/church_leaders/LadyPastorAlexaHagin-Wealth.jpg';
-const LadyPastorAliceOhenebaAsare = '/public/assets/img/church_leaders/LadyPastorAliceOhenebaAsare.png';
-const PastorAbrahamTetteh = '/public/assets/img/church_leaders/PastorAbrahamTetteh.jpg';
-const PastorAlbertOseiAwuah = '/public/assets/img/church_leaders/PastorAlbertOsei-Awuah.png';
-const PastorCharles = '/public/assets/img/church_leaders/PastorCharles.jpg';
-const PastorEmmanuelFiifiRobert = '/public/assets/img/church_leaders/PastorEmmanuelFiifiRobert.jpg';
-const PastorEmmanuelYartey = '/public/assets/img/church_leaders/PastorEmmanuelYartey.jpg';
-const PastorMichaelOduro = '/public/assets/img/church_leaders/PastorMichaelOduro.jpg';
-const PastorBenjaminQuayson = '/public/assets/img/church_leaders/pastorBenjaminQuayson.jpg';
-const PastorMosesFrimpong = '/public/assets/img/church_leaders/PastorMosesFrimpong.jpg';
-const PastorVitalis = '/public/assets/img/church_leaders/PastorVitalis.jpg';
-const ProphetEric = '/public/assets/img/church_leaders/ProphetEric.png';
-const ProphetEvans = '/public/assets/img/church_leaders/ProphetEvans.jpg';
-const ProphetSampson = '/public/assets/img/church_leaders/prophetSampson.png';
-const CEHerbertTogbey = '/public/assets/img/church_leaders/CEHerbertTogbey.jpg';
-const ShepherdKingsleyTetteh = '/public/assets/img/church_leaders/PastorKingsleyTetteh.jpg';
-const PastorAlbertBoakye = '/public/assets/img/church_leaders/PastorAlbertBoakye.png';
-const PastorEbenezerKotey = '/public/assets/img/church_leaders/PastorEbenezerKotey.png';
-const CETerrickNaador = '/public/assets/img/church_leaders/CETerrick.jpg';
-const noPicture = '/public/assets/img/church_leaders/noPic.png';
+const CEDelademAmekudzi = '/assets/img/church_leaders/CEDelademAmekudzi.jpg';
+const CEElderEssienNana = '/assets/img/church_leaders/CEELderEssienNana.jpg';
+const CEElderProsperAsamoah = '/assets/img/church_leaders/CEELderProsperAsamoah.jpg';
+const CEFredAgyemang = '/assets/img/church_leaders/CEFredAgyemang.jpg';
+const CEPeterHaginWealth = '/assets/img/church_leaders/CEPeterHagin-Wealth.jpg';
+const ChiefElderCharlesFiadjoe = '/assets/img/church_leaders/ChiefElderCharlesFiadjoe.jpg';
+const FrankTettehJunior = '/assets/img/church_leaders/FrankTettehJunior.jpg';
+const LadyPastorAlexaHaginWealth = '/assets/img/church_leaders/LadyPastorAlexaHagin-Wealth.jpg';
+const LadyPastorAliceOhenebaAsare = '/assets/img/church_leaders/LadyPastorAliceOhenebaAsare.png';
+const PastorAbrahamTetteh = '/assets/img/church_leaders/PastorAbrahamTetteh.jpg';
+const PastorAlbertOseiAwuah = '/assets/img/church_leaders/PastorAlbertOsei-Awuah.png';
+const PastorCharles = '/assets/img/church_leaders/PastorCharles.jpg';
+const PastorEmmanuelFiifiRobert = '/assets/img/church_leaders/PastorEmmanuelFiifiRobert.jpg';
+const PastorEmmanuelYartey = '/assets/img/church_leaders/PastorEmmanuelYartey.jpg';
+const PastorMichaelOduro = '/assets/img/church_leaders/PastorMichaelOduro.jpg';
+const PastorBenjaminQuayson = '/assets/img/church_leaders/pastorBenjaminQuayson.jpg';
+const PastorMosesFrimpong = '/assets/img/church_leaders/PastorMosesFrimpong.jpg';
+const PastorVitalis = '/assets/img/church_leaders/PastorVitalis.jpg';
+const ProphetEric = '/assets/img/church_leaders/ProphetEric.png';
+const ProphetEvans = '/assets/img/church_leaders/ProphetEvans.jpg';
+const ProphetSampson = '/assets/img/church_leaders/prophetSampson.png';
+const CEHerbertTogbey = '/assets/img/church_leaders/CEHerbertTogbey.jpg';
+const ShepherdKingsleyTetteh = '/assets/img/church_leaders/PastorKingsleyTetteh.jpg';
+const PastorAlbertBoakye = '/assets/img/church_leaders/PastorAlbertBoakye.png';
+const PastorEbenezerKotey = '/assets/img/church_leaders/PastorEbenezerKotey.png';
+const CETerrickNaador = '/assets/img/church_leaders/CETerrick.jpg';
+const noPicture = '/assets/img/church_leaders/noPic.png';
 
 
 export default function ChurchLeadership() {

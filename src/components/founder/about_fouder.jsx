@@ -3,7 +3,7 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { Facebook, Instagram, Twitter, Quote, ArrowRight } from "lucide-react"
-const pjw = '/public/assets/img/pjw.svg' // Image for Reverend John Winfred
+const pjw = '/assets/img/pjw.svg' // Image for Reverend John Winfred
 
 export default function AboutFounder() {
   const ref = useRef(null)

@@ -3,9 +3,9 @@
 import React, { useRef, useState, useEffect } from "react"
 import { motion, useInView, useScroll, useTransform } from "framer-motion"
 
-const belief = '/public/assets/img/beli.jpg'
-const founderStorymobile = '/public/assets/img/backgroundImages/thefounderstorymobile1.jpg'
-const founderdesktop1 = '/public/assets/img/backgroundImages/thefounderdesktop1.jpg'
+const belief = '/assets/img/beli.jpg'
+const founderStorymobile = '/assets/img/backgroundImages/thefounderstorymobile1.jpg'
+const founderdesktop1 = '/assets/img/backgroundImages/thefounderdesktop1.jpg'
 
 const FounderStory = () => {
   const containerRef = useRef(null)
