@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 import useWindowSize from "../../hooks/useWindowSize"
 
 // Define images outside component to prevent recreating on each render
-import mobileImage1 from "/public/assets/img/backgroundImages/welcomehomeMobilebg2.jpg"
+const mobileImage1 = "/public/assets/img/backgroundImages/welcomehomeMobilebg2.jpg"
 const mobileImage2 = "/public/assets/img/backgroundImages/welcomehomeMobilebg1.jpg"
 const desktopImage1 = "/public/assets/img/backgroundImages/homedesktopbg1.jpg"
 const desktopImage2 = "/public/assets/img/backgroundImages/homedesktopbg2.png"
