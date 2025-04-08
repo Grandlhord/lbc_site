@@ -6,9 +6,9 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa"
 import { ShoppingCart, Download, ExternalLink, Info } from "lucide-react"
 import { useLocation, useNavigate } from "react-router-dom"
 
-const bookImage1 = '/assets/img/born_again.svg'
-const bookImage2 = '/assets/img/gifts.svg'
-const bookImage3 = '/assets/img/workofministry.svg'
+const bookImage1 = 'public/assets/img/born_again.svg'
+const bookImage2 = '/public/assets/img/gifts.svg'
+const bookImage3 = '/public/assets/img/workofministry.svg'
 
 export default function BooksByFounder() {
   const [books, setBooks] = useState([]) 

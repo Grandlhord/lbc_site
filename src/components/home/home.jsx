@@ -6,11 +6,11 @@ import { useNavigate } from "react-router-dom"
 import useWindowSize from "../../hooks/useWindowSize"
 
 
-const mobileImage1 = '/assets/img/backgroundImages/welcomehomeMobilebg2.jpg';
+const mobileImage1 = '/public/assets/img/backgroundImages/welcomehomeMobilebg2.jpg';
 
-const mobileImage2 = '/assets/img/backgroundImages/welcomehomeMobilebg1.jpg'
- const  desktopImage1 = '/assets/img/backgroundImages/homedesktopbg1.jpg'
- const  desktopImage2 = '/assets/img/backgroundImages/homedesktopbg2.png'
+const mobileImage2 = '/public/assets/img/backgroundImages/welcomehomeMobilebg1.jpg'
+ const  desktopImage1 = '/public/assets/img/backgroundImages/homedesktopbg1.jpg'
+ const  desktopImage2 = '/public/assets/img/backgroundImages/homedesktopbg2.png'
 
 export default function Home() {
   const containerRef = useRef(null)

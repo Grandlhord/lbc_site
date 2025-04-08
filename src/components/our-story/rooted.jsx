@@ -2,8 +2,8 @@
 
 import { useRef } from "react"
 import { motion, useInView, useScroll, useTransform } from "framer-motion"
-const bigLogobg = '/assets/img/large.png'
-const gradientBg= '/assets/img/layoutblur.svg'
+const bigLogobg = '/public/assets/img/large.png'
+const gradientBg= '/public/assets/img/layoutblur.svg'
 
 
 const Rooted = () => {

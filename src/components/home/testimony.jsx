@@ -3,8 +3,8 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, X, Play, Quote } from "lucide-react"
-const  one = '/assets/img/images3.png'
-const  two = '/assets/img/2.png'
+const  one = '/public/assets/img/images3.png'
+const  two = '/public/assets/img/2.png'
 
 // Enhanced testimonial data with more details
 const testimonials = [

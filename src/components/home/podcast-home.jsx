@@ -3,11 +3,11 @@ import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import CountUp from "react-countup"
 
-const  earth = '/assets/img/earth.png'
-const  youtube ='/assets/img/youtube.svg'
-const  podbean  ='/assets/img/podbean.svg'
-const  spotify = '/assets/img/spotify.svg'
-const  apply = '/assets/img/apply_pod.svg'
+const  earth = '/public/assets/img/earth.png'
+const  youtube ='/public/assets/img/youtube.svg'
+const  podbean  ='/public/assets/img/podbean.svg'
+const  spotify = '/public/assets/img/spotify.svg'
+const  apply = '/public/assets/img/apply_pod.svg'
 
 function Podcast() {
   const containerRef = useRef(null)
