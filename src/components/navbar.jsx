@@ -197,22 +197,37 @@ export default function NavBar() {
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", damping: 25 }}
-            className="lg:hidden fixed inset-0 bg-gradient-to-b from-black to-purple-950/95 backdrop-blur-md z-[100] overflow-hidden"
-            style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0 }}
+  {isOpen && (
+    <motion.div
+      initial={{ opacity: 0, x: "100%" }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: "100%" }}
+      transition={{ type: "spring", damping: 20, duration: 0.5 }}
+      className="fixed inset-0 bg-gradient-to-b from-black to-purple-950/95 backdrop-blur-md z-[100] overflow-y-auto"
+    >
+      <div className="flex justify-between items-center px-6 py-6 border-b border-gray-800/30">
+        {/* Logo */}
+        <div className="flex items-center gap-3">
+          <img src={logo || "/placeholder.svg"} className="w-8 h-8" alt="Logo" />
+          <motion.span
+            className="text-lg font-light text-white"
+            initial={{ opacity: 0.7 }}
+            animate={{
+              opacity: [0.7, 1, 0.7],
+              y: [0, -2, 0],
+            }}
+            transition={{
+              duration: 1.5,
+              ease: "easeInOut",
+              repeat: Number.POSITIVE_INFINITY,
+              repeatType: "reverse",
+              repeatDelay: 1,
+            }}
           >
-            {/* Mobile Menu Header */}
-            <div className="flex justify-between items-center px-6 py-6 border-b border-gray-800/30">
-              {/* Logo */}
-              <div className="flex items-center gap-3">
-                <img src={logo || "/placeholder.svg"} className="w-8 h-8" alt="Logo" />
+            <motion.span className="font-medium">
+              {["L", "B", "C"].map((letter, index) => (
                 <motion.span
-                  className="text-lg font-light text-white"
+                  key={`mobile-${index}`}
                   initial={{ opacity: 0.7 }}
                   animate={{
                     opacity: [0.7, 1, 0.7],
@@ -224,110 +239,65 @@ export default function NavBar() {
                     repeat: Number.POSITIVE_INFINITY,
                     repeatType: "reverse",
                     repeatDelay: 1,
+                    delay: index * 0.08,
                   }}
+                  style={{ display: "inline-block" }}
                 >
-                  <motion.span className="font-medium">
-                    {["L", "B", "C"].map((letter, index) => (
-                      <motion.span
-                        key={`mobile-${index}`}
-                        initial={{ opacity: 0.7 }}
-                        animate={{
-                          opacity: [0.7, 1, 0.7],
-                          y: [0, -2, 0],
-                        }}
-                        transition={{
-                          duration: 1.5,
-                          ease: "easeInOut",
-                          repeat: Number.POSITIVE_INFINITY,
-                          repeatType: "reverse",
-                          repeatDelay: 1,
-                          delay: index * 0.08,
-                        }}
-                        style={{ display: "inline-block" }}
-                      >
-                        {letter}
-                      </motion.span>
-                    ))}
-                  </motion.span>
+                  {letter}
                 </motion.span>
-              </div>
-
-              {/* Close Button */}
-              <motion.button
-                whileHover={{ scale: 1.1, rotate: 90 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => setIsOpen(false)}
-                className="text-white p-1 rounded-full"
-              >
-                <X size={24} />
-              </motion.button>
-            </div>
-
-            {/* Mobile Navigation Links */}
-            <div className="flex flex-col items-center justify-center gap-2 mt-8 w-full px-6">
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  className="w-full"
-                >
-                  <NavLink
-                    to={formatLink(item)}
-                    className={({ isActive }) =>
-                      `flex items-center justify-between py-4 px-4 rounded-lg w-full transition-all ${
-                        isActive ? "bg-purple-500/20 text-white font-medium" : "text-gray-300 hover:bg-white/5"
-                      }`
-                    }
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {({ isActive }) => (
-                      <>
-                        <span>{item}</span>
-                        {isActive ? (
-                          <div className="h-2 w-2 rounded-full bg-purple-400"></div>
-                        ) : (
-                          <ChevronRight size={16} className="text-gray-500" />
-                        )}
-                      </>
-                    )}
-                  </NavLink>
-                </motion.div>
               ))}
-            </div>
+            </motion.span>
+          </motion.span>
+        </div>
 
-            {/* Mobile Give Button - Changed to NavLink */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: navItems.length * 0.05 + 0.1 }}
-              className="mt-8 flex justify-center w-full px-6"
-            >
-              <NavLink to="/give" className="w-full" onClick={() => setIsOpen(false)}>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-purple-500 text-white w-full py-3 rounded-lg text-base font-medium shadow-lg cursor-pointer"
-                >
-                  <Heart size={18} />
-                  GIVE
-                </motion.div>
-              </NavLink>
-            </motion.div>
+        {/* Close Button */}
+        <motion.button
+          whileHover={{ scale: 1.1, rotate: 90 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={() => setIsOpen(false)}
+          className="text-white p-1 rounded-full"
+        >
+          <X size={24} />
+        </motion.button>
+      </div>
 
-            {/* Footer */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: navItems.length * 0.05 + 0.2 }}
-              className="absolute bottom-8 left-0 right-0 text-center text-gray-400 text-xs"
+      {/* Links */}
+      <div className="flex flex-col items-center justify-center gap-4 mt-8 w-full px-6">
+        {navItems.map((item, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.05 }}
+            className="w-full"
+          >
+            <NavLink
+              to={formatLink(item)}
+              className={({ isActive }) =>
+                `flex items-center justify-between py-4 px-4 rounded-lg w-full transition-all ${
+                  isActive ? "bg-purple-500/20 text-white font-medium" : "text-gray-300 hover:bg-white/5"
+                }`
+              }
+              onClick={() => setIsOpen(false)}
             >
-              <p>© {new Date().getFullYear()} Lovereign Bible Church</p>
-            </motion.div>
+              {({ isActive }) => (
+                <>
+                  <span>{item}</span>
+                  {isActive ? (
+                    <div className="h-2 w-2 rounded-full bg-purple-400"></div>
+                  ) : (
+                    <ChevronRight size={16} className="text-gray-500" />
+                  )}
+                </>
+              )}
+            </NavLink>
           </motion.div>
-        )}
-      </AnimatePresence>
+        ))}
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
     </motion.nav>
   )
 }
