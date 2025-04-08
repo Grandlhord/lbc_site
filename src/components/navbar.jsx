@@ -35,15 +35,23 @@ export default function NavBar() {
 
   // Prevent body scrolling when menu is open
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "auto"
-    return () => {
-      document.body.style.overflow = "auto"
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
     }
-  }, [isOpen])
+    
+    return () => {
+      document.body.style.overflow = "auto"; // Important: ensure cleanup happens
+    }
+  }, [isOpen]);
 
   // Close menu when route changes
   useEffect(() => {
-    setIsOpen(false)
+    const timer =setTimeout(() => {
+      setIsOpen(false);
+    }, 100)
+    return () => clearTimeout(timer)
   }, [location])
 
   // Animation variants for the church name text

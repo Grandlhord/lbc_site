@@ -61,33 +61,28 @@ export default function BooksByFounder() {
       setBooks(placeholderBooks)
       
       // Check if there's a book ID in the URL
-      const params = new URLSearchParams(location.search)
-      const bookId = params.get('id')
-      
-      if (bookId) {
-        // Find the book with the matching ID
-        const selectedBook = placeholderBooks.find(book => book.id === parseInt(bookId))
-        if (selectedBook) {
-          setActiveBook(selectedBook)
-          // Scroll to the active book in the carousel
-          setTimeout(() => {
-            const bookElement = document.getElementById(`book-${selectedBook.id}`)
-            if (bookElement && scrollRef.current) {
-              const scrollLeft = bookElement.offsetLeft - scrollRef.current.offsetLeft
-              scrollRef.current.scrollTo({ left: scrollLeft, behavior: 'smooth' })
-            }
-          }, 300)
+      setTimeout(() => {
+        const params = new URLSearchParams(location.search);
+        const bookId = params.get('id');
+        
+        if (bookId) {
+          // Find the book with the matching ID
+          const selectedBook = placeholderBooks.find(book => book.id === parseInt(bookId));
+          if (selectedBook) {
+            setActiveBook(selectedBook);
+          } else {
+            // Default to the first book if ID not found
+            setActiveBook(placeholderBooks[0]);
+          }
         } else {
-          // Default to the first book if ID not found
-          setActiveBook(placeholderBooks[0])
+          // Default to the first book if no ID is provided
+          setActiveBook(placeholderBooks[0]);
         }
-      } else {
-        // Default to the first book if no ID is provided
-        setActiveBook(placeholderBooks[0])
-      }
-    }
-    fetchBooks()
-  }, [location])
+      }, 100);
+    };
+    
+    fetchBooks();
+  }, [location.search]);
 
   const scroll = (direction) => {
     if (scrollRef.current) {

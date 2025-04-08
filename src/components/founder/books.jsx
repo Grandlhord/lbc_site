@@ -60,8 +60,8 @@ export default function Books() {
   }, [])
 
   // Function to handle navigation to book details
-  const handleBookDetails = () => {
-    navigate("/books")
+  const handleBookDetails = (bookId) => {
+    navigate(`/book?id=${bookId}`)
   }
 
   // Animation variants
@@ -150,7 +150,7 @@ export default function Books() {
                 </div>
 
                 <button
-                  onClick={() => handleBookDetails()}
+                  onClick={() => handleBookDetails(book.id)}
                   className="flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-sm transition-colors w-full"
                 >
                   <ExternalLink size={14} />
