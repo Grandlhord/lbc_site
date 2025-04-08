@@ -22,7 +22,7 @@
     }
   ],
   "staticFiles": {
-    "include": ["assets/img/backgroundImages"],
+    "include": ["public/assets/img/backgroundImages"],
     "exclude": ["**/unused/**"]
   }
 }
