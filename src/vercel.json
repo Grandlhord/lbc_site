@@ -20,9 +20,5 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "staticFiles": {
-    "include": ["/assets/img/backgroundImages"],
-    "exclude": ["**/unused/**"]
-  }
+  ]
 }
