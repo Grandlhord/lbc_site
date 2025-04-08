@@ -5,7 +5,9 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { useNavigate } from "react-router-dom"
 import useWindowSize from "../../hooks/useWindowSize"
 
-import mobileImage1 from "../../assets/img/backgroundImages/welcomehomeMobilebg2.jpg"
+
+const mobileImage1 = '/assets/img/backgroundImages/welcomehomeMobilebg2.jpg';
+
 import mobileImage2 from "../../assets/img/backgroundImages/welcomehomeMobilebg1.jpg"
 import desktopImage1 from "../../assets/img/backgroundImages/homedesktopbg1.jpg"
 import desktopImage2 from "../../assets/img/backgroundImages/homedesktopbg2.png"
