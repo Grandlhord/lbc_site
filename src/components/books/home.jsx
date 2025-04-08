@@ -333,4 +333,3 @@ export default function BooksByFounder() {
     </div>
   )
 }
-S
