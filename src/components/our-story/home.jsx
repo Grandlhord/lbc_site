@@ -5,14 +5,14 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import useWindowSize from "../../hooks/useWindowSize"
 
 // Import your images
-const mobileImage1 = '/public/assets/img/backgroundImages/ourstorymobile2.jpg'
-const mobileImage2 = '/public/assets/img/backgroundImages/ourstorymobile1.jpg'
-const mobileImage3 = '/public/assets/img/backgroundImages/ourstorymobile3.jpg'
-const desktopImage1= '/public/assets/img/backgroundImages/ourstorydesktop1.jpg'
-const desktopImage2= '/public/assets/img/backgroundImages/ourstorydesktop2.jpg'
-const desktopImage3= '/public/assets/img/backgroundImages/ourstorydesktop3.jpg'
-const desktopImage4= '/public/assets/img/backgroundImages/ourstorydesktop4.jpg'
-const desktopImage5= '/public/assets/img/backgroundImages/ourstorydesktop5.jpg'
+const mobileImage1 = '/assets/img/backgroundImages/ourstorymobile2.jpg'
+const mobileImage2 = '/assets/img/backgroundImages/ourstorymobile1.jpg'
+const mobileImage3 = '/assets/img/backgroundImages/ourstorymobile3.jpg'
+const desktopImage1= '/assets/img/backgroundImages/ourstorydesktop1.jpg'
+const desktopImage2= '/assets/img/backgroundImages/ourstorydesktop2.jpg'
+const desktopImage3= '/assets/img/backgroundImages/ourstorydesktop3.jpg'
+const desktopImage4= '/assets/img/backgroundImages/ourstorydesktop4.jpg'
+const desktopImage5= '/assets/img/backgroundImages/ourstorydesktop5.jpg'
 
 const Home = () => {
   const { width } = useWindowSize()
