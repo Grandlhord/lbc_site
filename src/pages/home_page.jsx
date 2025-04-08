@@ -1,5 +1,4 @@
 import '../../src/App.css';
-import ellipse from '../assets/img/bg.png'
 import Home from '../components/home/home'
 import Subscribe from '../components/home/subscribe'
 import Belief from '../components/home/belief'
