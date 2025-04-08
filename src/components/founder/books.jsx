@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { ExternalLink } from "lucide-react"
 import { Link, useNavigate } from "react-router-dom"
@@ -60,8 +60,9 @@ export default function Books() {
   }, [])
 
   // Function to handle navigation to book details
+  // Changed to use /books?id= to match the other component
   const handleBookDetails = (bookId) => {
-    navigate(`/book?id=${bookId}`)
+    navigate(`/books?id=${bookId}`)
   }
 
   // Animation variants

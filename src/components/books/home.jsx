@@ -60,29 +60,26 @@ export default function BooksByFounder() {
       ]
       setBooks(placeholderBooks)
       
-      // Check if there's a book ID in the URL
-      setTimeout(() => {
-        const params = new URLSearchParams(location.search);
-        const bookId = params.get('id');
-        
-        if (bookId) {
-          // Find the book with the matching ID
-          const selectedBook = placeholderBooks.find(book => book.id === parseInt(bookId));
-          if (selectedBook) {
-            setActiveBook(selectedBook);
-          } else {
-            // Default to the first book if ID not found
-            setActiveBook(placeholderBooks[0]);
-          }
+      // Process URL parameters without setTimeout for better reliability
+      const params = new URLSearchParams(location.search);
+      const bookId = params.get('id');
+      
+      if (bookId) {
+        const selectedBook = placeholderBooks.find(book => book.id === parseInt(bookId));
+        if (selectedBook) {
+          setActiveBook(selectedBook);
         } else {
-          // Default to the first book if no ID is provided
+          // Default to first book if ID not found
           setActiveBook(placeholderBooks[0]);
         }
-      }, 100);
+      } else {
+        // Default to first book if no ID in URL
+        setActiveBook(placeholderBooks[0]);
+      }
     };
     
     fetchBooks();
-  }, [location.search]);
+  }, [location.search]); // Make sure to re-run when URL changes
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -93,12 +90,19 @@ export default function BooksByFounder() {
     }
   }
 
-  // Update URL when active book changes
+  // Update URL when active book changes, but only if it's a user-initiated change
+  // not from the URL parsing itself
   useEffect(() => {
     if (activeBook) {
-      navigate(`/books?id=${activeBook.id}`, { replace: true })
+      const params = new URLSearchParams(location.search);
+      const currentBookId = params.get('id');
+      
+      // Only update URL if the book ID has actually changed
+      if (!currentBookId || parseInt(currentBookId) !== activeBook.id) {
+        navigate(`/books?id=${activeBook.id}`, { replace: true });
+      }
     }
-  }, [activeBook, navigate])
+  }, [activeBook, navigate, location.search]);
 
   // Animation variants
   const containerVariants = {
@@ -128,6 +132,10 @@ export default function BooksByFounder() {
       transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
     },
   }
+
+  // Added logging to debug book selection
+  console.log("Active book:", activeBook);
+  console.log("URL search params:", location.search);
 
   return (
     <div className="bg-gradient-to-b from-[#295264] to-[#152745] min-h-screen flex flex-col items-center justify-center px-3 md:px-6 py-24 relative overflow-hidden">
