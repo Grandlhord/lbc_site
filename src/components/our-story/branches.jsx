@@ -66,7 +66,7 @@ export default function ChurchLeadership() {
     { name: "Pastor", pastor: "Herbert", location: "Tantra", image: CEHerbertTogbey },
     { name: "Pastor", pastor: "Michael Agbadji", location: "Bole", image: noPicture },
     { name: "Pastor", pastor: "Terrick Naador", location: "East Legon", image: CETerrickNaador },
-    { name: "Pastor", pastor: "Albert Osei Awuah", location: "Kumasi", image: PastorAbrahamTetteh },
+    { name: "Pastor", pastor: "Abraham Tetteh", location: "Kumasi", image: PastorAbrahamTetteh },
     { name: "Pastor", pastor: "Essien Nana", location: "Cape Coast", image: CEElderEssienNana },
     { name: "Pastor", pastor: "Vitalis Kanyerigbani", location: "Winneba", image: PastorVitalis },
     { name: "Pastor", pastor: "Peter Hagin Wealth", location: "UPSA", image: CEPeterHaginWealth },

@@ -90,7 +90,7 @@ const Rooted = () => {
           </motion.p>
 
           <motion.h1 variants={fadeInUp} custom={1} className="text-6xl md:text-8xl font-light tracking-tight">
-            <span className="text-white font-extralight">13</span>
+            <span className="text-white font-extralight">01</span>
             <span className="text-white/80 font-thin">.</span>
             <span className="text-white font-extralight">12</span>
             <span className="text-white/80 font-thin">.</span>

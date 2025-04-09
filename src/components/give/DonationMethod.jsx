@@ -119,10 +119,17 @@ const DonationMethods = ({ className = "", textClassName = "" }) => {
     },
     {
       icon: Phone,
-      iconColor: "text-purple-500",
+      iconColor: "text-red-500",
       name: "Telecel Cash",
-      titleColor: "text-purple-500",
+      titleColor: "text-red-500",
       details: [{ label: "Phone", value: "050 658 7666" }],
+    },
+    {
+      icon: Phone,
+      iconColor: "text-blue-500",
+      name: "AT Money",
+      titleColor: "text-blue-500",
+      details: [{ label: "Phone", value: "057 441 0001" }],
     },
   ]
 
