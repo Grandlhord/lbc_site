@@ -1,69 +1,31 @@
 "use client"
 import { useState } from "react"
-import { Youtube, Video, Play, X, Loader2 } from "lucide-react"
+import { Youtube, Video, Play, Loader2 } from "lucide-react"
 
 const VideoPlatforms = () => {
-  const [activeModal, setActiveModal] = useState(null)
+  const [activeVideo, setActiveVideo] = useState(null)
 
-  const openModal = (platform) => setActiveModal(platform)
-  const closeModal = () => setActiveModal(null)
-
-  // Modal component with improved design and animations
-  const VideoModal = ({ platform, src, title }) => {
-    if (!activeModal) return null
-
-    return (
-      <div
-        className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 backdrop-blur-sm animate-fadeIn"
-        onClick={closeModal}
-      >
-        <div
-          className={`relative w-full ${
-            platform === "youtube" ? "max-w-5xl aspect-video" : "max-w-md aspect-[9/16]"
-          } animate-scaleIn shadow-2xl rounded-xl overflow-hidden`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <iframe
-            src={`${src}?autoplay=1`}
-            className="absolute top-0 left-0 w-full h-full"
-            title={title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-          <button
-            onClick={closeModal}
-            className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors p-2 rounded-full bg-black/50 hover:bg-black/70"
-            aria-label="Close modal"
-          >
-            <X size={24} />
-          </button>
-        </div>
-      </div>
-    )
+  const handlePlay = (videoId) => {
+    setActiveVideo(videoId)
   }
 
-  // Enhanced platform card with better design and loading states
-  const PlatformCard = ({ icon: Icon, color, title, description, platform, src }) => {
+  const isVideoPlaying = (videoId) => activeVideo === videoId
+
+  // Enhanced platform card with global playback control
+  const PlatformCard = ({ icon: Icon, color, title, description, src, videoId }) => {
     const [isVideoLoaded, setIsVideoLoaded] = useState(false)
-    const [isHovered, setIsHovered] = useState(false)
 
     const colorClasses = {
       red: {
         bg: "bg-red-500",
         text: "text-red-500",
-        hover: "group-hover:text-red-400",
         shadow: "shadow-red-500/20",
-        hoverShadow: "group-hover:shadow-red-500/40",
-        border: "border-red-500/20",
         gradient: "from-red-600 to-red-500",
       },
       pink: {
         bg: "bg-pink-500",
         text: "text-pink-500",
-        hover: "group-hover:text-pink-400",
         shadow: "shadow-pink-500/20",
-        hoverShadow: "group-hover:shadow-pink-500/40",
-        border: "border-pink-500/20",
         gradient: "from-pink-600 to-pink-500",
       },
     }
@@ -74,21 +36,21 @@ const VideoPlatforms = () => {
       <div
         className={`bg-gradient-to-br from-[#1a1a1a] to-[#2a2a2a] rounded-xl w-full max-w-sm overflow-hidden 
           shadow-lg hover:shadow-xl transform transition-all duration-500 hover:scale-[1.02] 
-          relative group border border-gray-800 ${colorClass.shadow} ${colorClass.hoverShadow}`}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+          relative group border border-gray-800 ${colorClass.shadow}`}
       >
         <div className="relative">
-          {/* Video Preview */}
+          {/* Video Frame */}
           <div className="aspect-video overflow-hidden relative">
             <iframe
-              src={`${src}?controls=0&showinfo=0&rel=0&modestbranding=1&mute=1`}
+              src={`${src}${
+                isVideoPlaying(videoId) ? "?autoplay=1" : "?controls=0&showinfo=0&rel=0&modestbranding=1&mute=1"
+              }`}
               className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${
                 isVideoLoaded ? "opacity-100" : "opacity-0"
               }`}
-              title={`${title} Preview`}
+              title={`${title} Video`}
               onLoad={() => setIsVideoLoaded(true)}
-              allow="accelerometer; encrypted-media;"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             ></iframe>
 
             {/* Enhanced Loading State */}
@@ -99,23 +61,24 @@ const VideoPlatforms = () => {
               </div>
             )}
 
-            {/* Play Overlay with Animation */}
-            <div
-              className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent 
-                flex items-center justify-center cursor-pointer transition-all duration-300
-                ${isHovered ? "opacity-100" : "opacity-90"}`}
-              onClick={() => openModal(platform)}
-            >
+            {/* Play Overlay */}
+            {!isVideoPlaying(videoId) && (
               <div
-                className={`w-16 h-16 rounded-full bg-${color}-500/20 flex items-center justify-center
-                transform transition-transform duration-300 ${isHovered ? "scale-110" : "scale-100"}`}
+                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent 
+                  flex items-center justify-center cursor-pointer transition-all duration-300"
+                onClick={() => handlePlay(videoId)}
               >
-                <Play
-                  className={`text-white w-8 h-8 drop-shadow-lg ${isHovered ? "animate-pulse" : ""}`}
-                  fill="white"
-                />
+                <div
+                  className={`w-16 h-16 rounded-full bg-${color}-500/20 flex items-center justify-center
+                  transform transition-transform duration-300`}
+                >
+                  <Play
+                    className="text-white w-8 h-8 drop-shadow-lg"
+                    fill="white"
+                  />
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
 
@@ -125,22 +88,12 @@ const VideoPlatforms = () => {
             <div className={`w-10 h-10 rounded-full ${colorClass.bg}/10 flex items-center justify-center mr-3`}>
               <Icon className={`${colorClass.text} w-5 h-5`} />
             </div>
-            <h3 className={`text-xl font-bold text-white ${colorClass.hover} transition-colors duration-300`}>
+            <h3 className={`text-xl font-bold text-white transition-colors duration-300`}>
               {title}
             </h3>
           </div>
 
           <p className="text-gray-400 text-sm mb-5 line-clamp-3">{description}</p>
-
-          <button
-            onClick={() => openModal(platform)}
-            className={`w-full bg-gradient-to-r ${colorClass.gradient} hover:brightness-110 text-white 
-              font-medium py-2.5 px-4 rounded-lg transition-all duration-300 flex items-center justify-center gap-2
-              shadow-md ${colorClass.shadow} hover:shadow-lg ${colorClass.hoverShadow}`}
-          >
-            <Play size={16} />
-            Watch Now
-          </button>
         </div>
       </div>
     )
@@ -171,8 +124,8 @@ const VideoPlatforms = () => {
             color="red"
             title="YouTube Videos"
             description="Explore our full-length sermons, teachings, and church events on YouTube. Dive deeper into God's word through our comprehensive video content."
-            platform="youtube"
             src="https://www.youtube.com/embed/qAL4h2SgtPo"
+            videoId="youtube"
           />
 
           <PlatformCard
@@ -180,24 +133,13 @@ const VideoPlatforms = () => {
             color="pink"
             title="TikTok Videos"
             description="Quick insights, short teachings, and inspiring moments on TikTok. Perfect for spiritual encouragement throughout your day."
-            platform="tiktok"
             src="https://www.tiktok.com/embed/7467645060943727877"
+            videoId="tiktok"
           />
         </div>
-
-        <VideoModal
-          platform={activeModal}
-          src={
-            activeModal === "youtube"
-              ? "https://www.youtube.com/embed/qAL4h2SgtPo"
-              : "https://www.tiktok.com/embed/7467645060943727877"
-          }
-          title={activeModal === "youtube" ? "YouTube Video" : "TikTok Video"}
-        />
       </div>
     </div>
   )
 }
 
 export default VideoPlatforms
-
