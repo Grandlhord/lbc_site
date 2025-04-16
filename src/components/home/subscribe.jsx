@@ -23,7 +23,7 @@ export default function Subscribe() {
   }
 
   return (
-    <div className="relative z-40 py-8 px-4 bg-gradient-to-b from-[#2f1717] to-[#1e1214]">
+    <div className="relative z-40 py-8 px-4 bg-transparent">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
