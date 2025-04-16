@@ -5,9 +5,9 @@ import { motion } from "framer-motion"
 import { ExternalLink } from "lucide-react"
 import { Link, useNavigate } from "react-router-dom"
 
-const bookImage1 = '/assets/img/born_again.svg'
-const bookImage2 = '/assets/img/gifts.svg'
-const bookImage3 = '/assets/img/workofministry.svg'
+const bookImage1 = '/assets/img/giftsandcallings.jpg'
+const bookImage2 = '/assets/img/systems_structures.jpg'
+const bookImage3 = '/assets/img/work_of_ministry.jpg'
 
 export default function Books() {
   const [books, setBooks] = useState([]) // State to store book data

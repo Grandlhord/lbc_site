@@ -10,12 +10,12 @@ import "swiper/css/navigation"
 import "swiper/css/pagination"
 import "swiper/css/effect-fade"
 
-// Import your images
-const pjwd1 =  '/assets/img/backgroundImages/ourstorydesktop1.jp'
-const pjwd2 =  '/assets/img/backgroundImages/thefounderdesktop1.'
-const pjwm1 =  '/assets/img/backgroundImages/foundermobile1.jpg'
-const pjwm2 =  '/assets/img/backgroundImages/foundermobile2.jpg'
-const pjwm3 =  '/assets/img/backgroundImages/foundermobile3.jpg'
+// Fixed image paths - they had incomplete extensions
+const pjwd1 = '/assets/img/backgroundImages/ourstorydesktop1.jpg'
+const pjwd2 = '/assets/img/backgroundImages/thefounderdesktop1.jpg'
+const pjwm1 = '/assets/img/backgroundImages/foundermobile1.jpg'
+const pjwm2 = '/assets/img/backgroundImages/foundermobile2.jpg'
+const pjwm3 = '/assets/img/backgroundImages/foundermobile3.jpg'
 
 const desktopImages = [pjwd1, pjwd2]
 const mobileImages = [pjwm1, pjwm2, pjwm3]
@@ -154,20 +154,28 @@ export default function Home() {
             }}
           />
 
-          {/* Main title with refined styling */}
-          <h1 className="font-serif font-light tracking-wide text-[2.8rem] md:text-[4rem] lg:text-[5.5rem] xl:text-[6.5rem] leading-tight">
-            <span className="inline-block relative">
-              {/* Subtle outline effect */}
-              <span className="absolute inset-0 blur-[2px] text-white/10">The Founder</span>
-
-              {/* Main text with gradient */}
-              <span
-                className="relative bg-clip-text text-transparent bg-gradient-to-b from-white/90 via-white/80 to-white/60
-                              drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)]"
+          {/* Main title with consistent styling as previous component */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-Geist tracking-tight overflow-hidden text-white">
+            {/* Split "The Founder" into words with spacing between */}
+            {"The Founder".split(" ").map((word, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.1 + index * 0.05,
+                  ease: [0.215, 0.61, 0.355, 1],
+                }}
+                className="inline-block mr-4"
               >
-                The Founder
-              </span>
-            </span>
+                {word === "Founder" ? (
+                  <span className="italic">{word}</span>
+                ) : (
+                  word
+                )}
+              </motion.span>
+            ))}
           </h1>
         </motion.div>
 
@@ -180,6 +188,14 @@ export default function Home() {
         >
           Visionary Leader & Spiritual Guide
         </motion.h2>
+
+        {/* Divider - added for consistency with previous component */}
+        <motion.div
+          className="w-16 h-px bg-purple-300/70 my-8"
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 0.7 }}
+          transition={{ duration: 1, delay: 1.5 }}
+        />
 
         <AnimatePresence mode="wait">
           <motion.div
@@ -206,4 +222,3 @@ export default function Home() {
     </div>
   )
 }
-

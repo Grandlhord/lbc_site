@@ -18,14 +18,16 @@ const PHRASES = [
   "Making a people ready for God",
 ]
 
-const WELCOME_TEXT = "Welcome Home"
+const TITLES = ["Welcome Home", "Lovereign Bible Church"]
 const IMAGE_TRANSITION_INTERVAL = 6000
+const TITLE_TRANSITION_INTERVAL = 4000
 const PHRASE_TRANSITION_INTERVAL = 4000
 
 export default function Home() {
   const containerRef = useRef(null)
   const imageIntervalRef = useRef(null)
   const phraseIntervalRef = useRef(null)
+  const titleIntervalRef = useRef(null)
   const { width } = useWindowSize()
   const navigate = useNavigate()
 
@@ -34,11 +36,11 @@ export default function Home() {
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0)
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0)
   const [isImageTransitioning, setIsImageTransitioning] = useState(false)
 
   // Preload images for smoother transitions
   useEffect(() => {
-    // Preload all images
     images.forEach((src) => {
       const img = new Image()
       img.src = src
@@ -55,67 +57,42 @@ export default function Home() {
   const phraseY = useTransform(scrollYProgress, [0, 0.3], [0, -30])
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.3])
 
-  // Image transition with useCallback to prevent recreation
-  const transitionImage = useCallback(() => {
-    if (!isImageTransitioning) {
-      setIsImageTransitioning(true)
-
-      // Use a timeout to ensure the transition state is set before changing the image
-      setTimeout(() => {
-        setCurrentImageIndex((prev) => (prev + 1) % images.length)
-      }, 50)
-    }
-  }, [isImageTransitioning, images.length])
-
-  // Image transition interval
+  // Image transition
   useEffect(() => {
-    imageIntervalRef.current = setInterval(transitionImage, IMAGE_TRANSITION_INTERVAL)
+    imageIntervalRef.current = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length)
+    }, IMAGE_TRANSITION_INTERVAL)
 
     return () => {
-      if (imageIntervalRef.current) {
-        clearInterval(imageIntervalRef.current)
-      }
+      clearInterval(imageIntervalRef.current)
     }
-  }, [transitionImage])
+  }, [images.length])
 
-  // Reset transition state after animation completes
-  const handleImageAnimationComplete = useCallback(() => {
-    setIsImageTransitioning(false)
-  }, [])
-
-  // Phrase transition interval
+  // Phrase transition
   useEffect(() => {
     phraseIntervalRef.current = setInterval(() => {
       setCurrentPhraseIndex((prev) => (prev + 1) % PHRASES.length)
     }, PHRASE_TRANSITION_INTERVAL)
 
     return () => {
-      if (phraseIntervalRef.current) {
-        clearInterval(phraseIntervalRef.current)
-      }
+      clearInterval(phraseIntervalRef.current)
     }
   }, [])
 
-  // Progress indicator variants
-  const progressVariants = {
-    initial: { width: 0 },
-    animate: {
-      width: "100%",
-      transition: {
-        duration: IMAGE_TRANSITION_INTERVAL / 1000,
-        ease: "linear",
-      },
-    },
-  }
+  // Title transition
+  useEffect(() => {
+    titleIntervalRef.current = setInterval(() => {
+      setCurrentTitleIndex((prev) => (prev + 1) % TITLES.length)
+    }, TITLE_TRANSITION_INTERVAL)
 
-  // Handle navigation to our-story page
-  const handleDiscoverClick = useCallback(() => {
-    navigate("/our-story")
-  }, [navigate])
+    return () => {
+      clearInterval(titleIntervalRef.current)
+    }
+  }, [])
 
   return (
     <motion.div ref={containerRef} className="relative h-screen w-full overflow-hidden" style={{ opacity }}>
-      {/* Background Images with Improved Transition */}
+      {/* Background Images */}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentImageIndex}
@@ -124,11 +101,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{
-            duration: 0.2,
-            ease: "fadein",
-          }}
-          onAnimationComplete={handleImageAnimationComplete}
+          transition={{ duration: 0.2, ease: "fadein" }}
         />
       </AnimatePresence>
 
@@ -138,32 +111,33 @@ export default function Home() {
 
       {/* Content */}
       <div className="relative z-30 flex flex-col items-center justify-center text-center h-full px-4">
-        {/* Welcome Text */}
+        {/* Title */}
         <motion.div
-  style={{ y: titleY }}
-  className={`${
-    width <= 768 ? "mt-[-18rem]" : "mt-[-8rem]"
-  }`} // Adjust margin based on screen width
->
-  <h1 className="relative text-5xl md:text-7xl lg:text-9xl text-white font-bold tracking-tight overflow-hidden">
-    {WELCOME_TEXT.split("").map((letter, index) => (
-      <motion.span
-        key={index}
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.8,
-          delay: 0.1 + index * 0.05,
-          ease: [0.215, 0.61, 0.355, 1],
-        }}
-        className="inline-block"
-      >
-        {letter === " " ? "\u00A0" : letter}
-      </motion.span>
-    ))}
-  </h1>
-</motion.div>
-
+          style={{ y: titleY }}
+          className={`${width <= 768 ? "mt-[-18rem]" : "mt-[-8rem]"}`}
+        >
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-Geist tracking-tight overflow-hidden text-white">
+            {TITLES[currentTitleIndex].split(" ").map((word, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.1 + index * 0.05,
+                  ease: [0.215, 0.61, 0.355, 1],
+                }}
+                className="inline-block mr-4"
+              >
+                {word === "Bible" || word === "Home" ? (
+                  <span className="italic">{word}</span>
+                ) : (
+                  word
+                )}
+              </motion.span>
+            ))}
+          </h1>
+        </motion.div>
 
         {/* Divider */}
         <motion.div
@@ -185,7 +159,7 @@ export default function Home() {
                 duration: 0.8,
                 ease: [0.215, 0.61, 0.355, 1],
               }}
-              className="text-white/90 text-lg md:text-2xl lg:text-3xl font-light"
+              className="text-white/90 text-lg md:text-2xl lg:text-3xl font-Geist font-light"
             >
               {PHRASES[currentPhraseIndex]}
             </motion.p>
@@ -203,35 +177,12 @@ export default function Home() {
             borderColor: "rgba(139, 92, 246, 0.5)",
           }}
           whileTap={{ scale: 0.98 }}
-          onClick={handleDiscoverClick}
+          onClick={() => navigate("/our-story")}
           className="mt-6 px-8 py-2.5 border border-white/20 text-white rounded-full text-xs md:text-sm tracking-widest uppercase font-light hover:bg-white/5 transition-all duration-300"
         >
           Discover More
         </motion.button>
       </div>
-
-      {/* Progress Indicators */}
-      <div className="absolute bottom-28 left-1/2 transform -translate-x-1/2 z-30 flex gap-2">
-        {images.map((_, index) => (
-          <div
-            key={index}
-            className={`h-[2px] w-6 md:w-8 ${index === currentImageIndex ? "bg-white/70" : "bg-white/30"}`}
-          >
-            {index === currentImageIndex && (
-              <motion.div
-                className="h-full bg-purple-300"
-                variants={progressVariants}
-                initial="initial"
-                animate="animate"
-                key={currentImageIndex}
-              />
-            )}
-          </div>
-        ))}
-      </div>
-
-      {/* Bottom Gradient moved up to make room for Subscribe component */}
-      <div className="absolute bottom-0 h-[25vh] w-full bg-gradient-to-t from-[#2f1717] to-transparent z-20"></div>
     </motion.div>
   )
 }

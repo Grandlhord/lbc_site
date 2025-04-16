@@ -151,13 +151,11 @@ export default function AboutFounder() {
 
             <motion.div className="space-y-6 text-lg text-gray-300 leading-relaxed" variants={contentVariants}>
               <p>
-                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
-                Latin literature from 45 BC, making it over 2000 years old.
+              Rev. John Winfred is a proficient Pastor, preacher and teacher of the word of God. He is a highly sought after minister of God's word on most university campuses in Ghana. His ministrations are characterized by consummate revelations in the Body of Christ, soul winning the work of the ministry, Bible doctrine and shepherding (discipleship/discipling) the flock of God. 
               </p>
 
               <p>
-                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
-                Latin literature from 45 BC, making it over 2000 years old.
+              He is the founder and Senior Pastor of Lovereign Bible church. He oversees a network of branches of Lovereign Bible Church.
               </p>
 
               <blockquote className="border-l-4 border-blue-500 pl-4 my-6 italic text-white">
@@ -165,8 +163,13 @@ export default function AboutFounder() {
               </blockquote>
 
               <p>
-                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
-                Latin literature from 45 BC, making it over 2000 years old.
+              He is also the founder of young ministers’ international (YMNI), a growing fellowship and a network of young ministers of the gospel. He has been appointed as a board member of the “Healing Jesus Campaign”, an international evangelist network of pastors, headed by the renowned Healing Evangelist, Mega Church Pastor and Teacher, Bishop Dag Heward Mills. He is also appointed a member of the Ghana Charismatic Bishops’ Conference.
+              </p>
+              <p>
+              He is also the founder of young ministers’ international (YMNI), a growing fellowship and a network of young ministers of the gospel. He has been appointed as a board member of the “Healing Jesus Campaign”, an international evangelist network of pastors, headed by the renowned Healing Evangelist, Mega Church Pastor and Teacher, Bishop Dag Heward Mills. He is also appointed a member of the Ghana Charismatic Bishops’ Conference.
+              </p>
+              <p>
+              His aim is to prepare Gods people and arm them with an excellent Bible based belief, guiding them to fulfil their divine mandate. Rev. John Winfred is blessed with so many sons and daughters in the ministry all over the world and He is married to Dr. Anita Winfred and they are blessed with two children.
               </p>
             </motion.div>
 

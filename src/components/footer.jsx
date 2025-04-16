@@ -79,31 +79,31 @@ export default function Footer() {
               <h3 className="text-white font-semibold text-sm tracking-wider border-b border-blue-500/30 pb-2 inline-block">
                 MENU
               </h3>
-              <ul className="space-y-2">
-                <li>
+              <ul className="space-y-2 list-none">
+                <li className="group hover:list-disc">
                   <Link
                     to="/"
                     className="text-slate-300 hover:text-white transition-colors flex items-center gap-1.5 group"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50 group-hover:bg-blue-500 transition-colors"></span>
+                    <span className=" group-hover:bg-blue-500 transition-colors"></span>
                     Home
                   </Link>
                 </li>
-                <li>
+                <li className="group hover:list-disc">
                   <Link
                     to="/media"
                     className="text-slate-300 hover:text-white transition-colors flex items-center gap-1.5 group"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50 group-hover:bg-blue-500 transition-colors"></span>
+                    <span className=" group-hover:bg-blue-500 transition-colors"></span>
                     News
                   </Link>
                 </li>
-                <li>
+                <li className="group hover:list-disc">
                   <Link
                     to="/our-story"
                     className="text-slate-300 hover:text-white transition-colors flex items-center gap-1.5 group"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50 group-hover:bg-blue-500 transition-colors"></span>
+                    <span className=" group-hover:bg-blue-500 transition-colors"></span>
                     Who we are
                   </Link>
                 </li>
@@ -114,40 +114,40 @@ export default function Footer() {
               <h3 className="text-white font-semibold text-sm tracking-wider border-b border-blue-500/30 pb-2 inline-block">
                 USEFUL
               </h3>
-              <ul className="space-y-2">
-                <li>
+              <ul className="space-y-2 list-none">
+                <li className="group hover:list-disc">
                   <Link
                     to="/founder"
                     className="text-slate-300 hover:text-white transition-colors flex items-center gap-1.5 group"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50 group-hover:bg-blue-500 transition-colors"></span>
+                    <span className=" group-hover:bg-blue-500 transition-colors"></span>
                     Rev John Winfred
                   </Link>
                 </li>
-                <li>
+                <li className="group hover:list-disc">
                   <Link
                     to="/contact-us"
                     className="text-slate-300 hover:text-white transition-colors flex items-center gap-1.5 group"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50 group-hover:bg-blue-500 transition-colors"></span>
+                    <span className=" group-hover:bg-blue-500 transition-colors"></span>
                     Visit Us
                   </Link>
                 </li>
-                <li>
+                <li className="group hover:list-disc">
                   <Link
                     to="/media"
                     className="text-slate-300 hover:text-white transition-colors flex items-center gap-1.5 group"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50 group-hover:bg-blue-500 transition-colors"></span>
+                    <span className=" group-hover:bg-blue-500 transition-colors"></span>
                     Sermons
                   </Link>
                 </li>
-                <li>
+                <li className="group hover:list-disc">
                   <Link
                     to="/media"
                     className="text-slate-300 hover:text-white transition-colors flex items-center gap-1.5 group"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500/50 group-hover:bg-blue-500 transition-colors"></span>
+                    <span className=" group-hover:bg-blue-500 transition-colors"></span>
                     Media
                   </Link>
                 </li>
@@ -178,7 +178,7 @@ export default function Footer() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white py-2.5 px-4 text-sm rounded-lg transition-all duration-300 font-medium shadow-md shadow-blue-900/20 hover:shadow-blue-900/30"
+                className="w-full bg-purple-500 hover:from-purple-500 hover:to-purple-400 text-white py-2.5 px-4 text-sm rounded-lg transition-all duration-300 font-medium shadow-md shadow-blue-900/20 hover:shadow-blue-900/30"
               >
                 Subscribe
               </button>
@@ -195,4 +195,3 @@ export default function Footer() {
     </footer>
   )
 }
-

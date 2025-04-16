@@ -148,33 +148,34 @@ export default function NavBar() {
         {/* Desktop Navigation */}
         <div className="hidden lg:block">
           <ul className="flex items-center gap-8">
-            {navItems.map((item, index) => (
-              <motion.li key={index} whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
-                <NavLink
-                  to={formatLink(item)}
-                  className={({ isActive }) =>
-                    `relative text-sm font-light tracking-wide transition-colors ${
-                      isActive ? "text-white" : "text-gray-300 hover:text-white"
-                    }`
-                  }
-                >
-                  {({ isActive }) => (
-                    <>
-                      {item}
-                      {isActive && (
-                        <motion.div
-                          layoutId="navbar-indicator"
-                          className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-400"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 0.3 }}
-                        />
-                      )}
-                    </>
-                  )}
-                </NavLink>
-              </motion.li>
-            ))}
+          {navItems.map((item, index) => (
+  <motion.li key={index} whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
+    <NavLink
+      to={formatLink(item)}
+      className={({ isActive }) =>
+        `relative text-sm font-light tracking-wide transition-colors ${
+          isActive ? "text-white" : "text-gray-300 hover:text-white"
+        }`
+      }
+    >
+      {({ isActive }) => (
+        <>
+          {item.toUpperCase()}
+          {isActive && (
+            <motion.div
+              layoutId="navbar-indicator"
+              className="absolute -bottom-1 left-0 right-0 h-0.5 bg-purple-400"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            />
+          )}
+        </>
+      )}
+    </NavLink>
+  </motion.li>
+))}
+
           </ul>
         </div>
 

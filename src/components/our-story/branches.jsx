@@ -155,7 +155,7 @@ export default function ChurchLeadership() {
           transition={{ duration: 0.5 }}
           className="text-3xl sm:text-4xl font-bold text-white mb-4"
         >
-          Church Leadership
+          Church Pastors
         </motion.h1>
         
         <motion.p
@@ -274,28 +274,29 @@ export default function ChurchLeadership() {
 
       {/* Stats Section - Simplified */}
       <motion.div
-        className="mt-16 max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center"
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 border border-gray-700">
-          <h3 className="text-xl font-bold text-blue-400">27+</h3>
-          <p className="mt-1 text-xs text-gray-300">Church Leaders</p>
-        </div>
-        <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 border border-gray-700">
-          <h3 className="text-xl font-bold text-purple-400">20+</h3>
-          <p className="mt-1 text-xs text-gray-300">Branches</p>
-        </div>
-        <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 border border-gray-700">
-          <h3 className="text-xl font-bold text-indigo-400">15+</h3>
-          <p className="mt-1 text-xs text-gray-300">Cities</p>
-        </div>
-        <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 border border-gray-700">
-          <h3 className="text-xl font-bold text-sky-400">1000+</h3>
-          <p className="mt-1 text-xs text-gray-300">Members</p>
-        </div>
-      </motion.div>
+  className="mt-16 max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center"
+  initial={{ opacity: 0 }}
+  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+  transition={{ duration: 0.5, delay: 0.5 }}
+>
+  <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 border border-gray-700">
+    <h3 className="text-3xl font-bold text-blue-400">27+</h3> {/* Increased size */}
+    <p className="mt-1 text-xs text-gray-300">Church Pastors</p>
+  </div>
+  <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 border border-gray-700">
+    <h3 className="text-3xl font-bold text-purple-400">20+</h3> {/* Increased size */}
+    <p className="mt-1 text-xs text-gray-300">Branches</p>
+  </div>
+  <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 border border-gray-700">
+    <h3 className="text-3xl font-bold text-indigo-400">15+</h3> {/* Increased size */}
+    <p className="mt-1 text-xs text-gray-300">Cities</p>
+  </div>
+  <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-3 border border-gray-700">
+    <h3 className="text-3xl font-bold text-sky-400">1000+</h3> {/* Increased size */}
+    <p className="mt-1 text-xs text-gray-300">Members</p>
+  </div>
+</motion.div>
+
     </div>
   )
 }

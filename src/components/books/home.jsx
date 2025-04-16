@@ -6,9 +6,9 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa"
 import { ShoppingCart, Download, ExternalLink, Info } from 'lucide-react'
 import { useLocation, useNavigate, Link } from "react-router-dom"
 
-const bookImage1 = '/assets/img/born_again.svg'
-const bookImage2 = '/assets/img/gifts.svg'
-const bookImage3 = '/assets/img/workofministry.svg'
+const bookImage1 = '/assets/img/giftsandcallings.jpg'
+const bookImage2 = '/assets/img/systems_structures.jpg'
+const bookImage3 = '/assets/img/work_of_ministry.jpg'
 
 export default function BooksByFounder() {
   const [books, setBooks] = useState([]) 
@@ -23,7 +23,7 @@ export default function BooksByFounder() {
       const placeholderBooks = [
         {
           id: 1,
-          title: "Born Again",
+          title: "The Gifts and Callings of God",
           image: bookImage1,
           description:
             "An insightful exploration of spiritual rebirth and the transformative journey of faith. This book delves into the profound meaning of being 'born again' and how it changes one's perspective on life.",
@@ -35,7 +35,7 @@ export default function BooksByFounder() {
         },
         {
           id: 2,
-          title: "Gifts of the Spirit",
+          title: "Church Systems and Strutures For Growth",
           image: bookImage2,
           description:
             "Discover the divine gifts bestowed upon believers and how to recognize and nurture them in your spiritual journey. Pastor John Winfred provides practical guidance on developing your spiritual gifts.",
@@ -47,7 +47,7 @@ export default function BooksByFounder() {
         },
         {
           id: 3,
-          title: "Work of Ministry",
+          title: "The Work of Ministry",
           image: bookImage3,
           description:
             "A comprehensive guide to understanding the various aspects of ministry work and how to effectively serve in your calling. This book offers wisdom for both new and experienced ministers.",
