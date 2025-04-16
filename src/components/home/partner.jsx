@@ -59,7 +59,7 @@ export default function Partner() {
                   id="fullName"
                   type="text"
                   placeholder="Enter your full name"
-                  className="w-full px-2 py-1 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white transition-all duration-200"
+                  className="w-full px-4 py-2.5 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white transition-all duration-200"
                 />
               </div>
 
@@ -71,7 +71,7 @@ export default function Partner() {
                   id="telephone"
                   type="tel"
                   placeholder="Enter your phone number"
-                  className="w-full px-4 py-1 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white transition-all duration-200"
+                  className="w-full px-4 py-2.5 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white transition-all duration-200"
                 />
               </div>
 
@@ -83,7 +83,7 @@ export default function Partner() {
                   id="country"
                   type="text"
                   placeholder="Enter your country"
-                  className="w-full px-4 py-1 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white transition-all duration-200"
+                  className="w-full px-4 py-2.5 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white transition-all duration-200"
                 />
               </div>
 

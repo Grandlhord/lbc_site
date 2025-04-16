@@ -115,7 +115,7 @@ export default function Seat() {
                 }}
                 className="mb-2"
               >
-                <span className="text-4xl md:text-6xl font-light text-white">
+                <span className="text-6xl md:text-9xl font-bold text-white">
                   {/* Show the number immediately, then animate when in view */}
                   {statsInView ? (
                     <CountUp

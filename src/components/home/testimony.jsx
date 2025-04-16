@@ -105,8 +105,8 @@ export default function TestimonyCorner() {
           {/* Header Section */}
           <div className="w-full md:w-1/3 text-center md:text-left">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-              <h1 className="text-white text-4xl md:text-5xl font-light mb-4">
-                Testimony <span className="font-extralight italic text-indigo-300">Corner</span>
+              <h1 className="text-white text-4xl md:text-5xl font-bold mb-4">
+                Testimonies
               </h1>
               <p className="text-indigo-200 mb-6 max-w-md mx-auto md:mx-0">
                 Real stories of transformation, healing, and divine intervention from our church members.
@@ -201,7 +201,7 @@ export default function TestimonyCorner() {
                         onClick={() => setSelectedTestimony(testimony)}
                         className="text-xs font-medium text-indigo-700 bg-white/80 rounded-full px-4 py-2 flex items-center gap-1 shadow-md mt-auto"
                       >
-                        <Play size={12} /> Watch Testimony
+                        <Play size={12} /> Read More
                       </motion.button>
                     </div>
 
@@ -260,16 +260,6 @@ export default function TestimonyCorner() {
                 </div>
 
                 <p className="text-gray-700 leading-relaxed mb-6">{selectedTestimony.fullStory}</p>
-
-                <div className="flex justify-center">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`bg-gradient-to-r ${selectedTestimony.bgGradient} text-white px-6 py-2.5 rounded-full flex items-center gap-2 shadow-md`}
-                  >
-                    <Play size={16} /> Watch Full Testimony
-                  </motion.button>
-                </div>
               </div>
             </motion.div>
           </motion.div>

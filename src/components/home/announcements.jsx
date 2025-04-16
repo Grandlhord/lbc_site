@@ -226,13 +226,13 @@ export default function Announce() {
             swiper.params.navigation.nextEl = nextRef.current
           }}
           slidesPerView={1}
-          spaceBetween={30}
+          spaceBetween={10}
           grabCursor={true}
           className="pb-16"
           breakpoints={{
-            640: { slidesPerView: 1, spaceBetween: 20 },
-            768: { slidesPerView: 2, spaceBetween: 30 },
-            1024: { slidesPerView: 3, spaceBetween: 40 },
+            640: { slidesPerView: 1, spaceBetween: 10 },
+            768: { slidesPerView: 3, spaceBetween: 15 },
+            1024: { slidesPerView: 3, spaceBetween: 20 },
           }}
         >
           {events.map((event, index) => (
@@ -286,21 +286,6 @@ export default function Announce() {
           ))}
         </Swiper>
       </motion.div>
-
-      {/* Custom styles for pagination bullets to match theme */}
-      <style jsx>{`
-        :global(.swiper-pagination-bullet) {
-          background: rgba(255, 255, 255, 0.5);
-          opacity: 1;
-          width: 8px;
-          height: 8px;
-        }
-        :global(.swiper-pagination-bullet-active) {
-          background: linear-gradient(to right, #14b8a6, #0f766e);
-          width: 24px;
-          border-radius: 4px;
-        }
-      `}</style>
     </div>
   )
 }

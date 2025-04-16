@@ -125,8 +125,8 @@ export default function Home() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{
-            duration: 1.5,
-            ease: "easeInOut",
+            duration: 0.2,
+            ease: "fadein",
           }}
           onAnimationComplete={handleImageAnimationComplete}
         />
@@ -139,25 +139,31 @@ export default function Home() {
       {/* Content */}
       <div className="relative z-30 flex flex-col items-center justify-center text-center h-full px-4">
         {/* Welcome Text */}
-        <motion.div style={{ y: titleY }} className="mt-[-4rem]">
-          <h1 className="relative text-5xl md:text-7xl lg:text-9xl text-white font-light tracking-tight overflow-hidden">
-            {WELCOME_TEXT.split("").map((letter, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.1 + index * 0.05,
-                  ease: [0.215, 0.61, 0.355, 1],
-                }}
-                className="inline-block"
-              >
-                {letter === " " ? "\u00A0" : letter}
-              </motion.span>
-            ))}
-          </h1>
-        </motion.div>
+        <motion.div
+  style={{ y: titleY }}
+  className={`${
+    width <= 768 ? "mt-[-18rem]" : "mt-[-8rem]"
+  }`} // Adjust margin based on screen width
+>
+  <h1 className="relative text-5xl md:text-7xl lg:text-9xl text-white font-bold tracking-tight overflow-hidden">
+    {WELCOME_TEXT.split("").map((letter, index) => (
+      <motion.span
+        key={index}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.8,
+          delay: 0.1 + index * 0.05,
+          ease: [0.215, 0.61, 0.355, 1],
+        }}
+        className="inline-block"
+      >
+        {letter === " " ? "\u00A0" : letter}
+      </motion.span>
+    ))}
+  </h1>
+</motion.div>
+
 
         {/* Divider */}
         <motion.div
@@ -198,14 +204,14 @@ export default function Home() {
           }}
           whileTap={{ scale: 0.98 }}
           onClick={handleDiscoverClick}
-          className="mt-12 px-8 py-2.5 border border-white/20 text-white rounded-full text-xs md:text-sm tracking-widest uppercase font-light hover:bg-white/5 transition-all duration-300"
+          className="mt-6 px-8 py-2.5 border border-white/20 text-white rounded-full text-xs md:text-sm tracking-widest uppercase font-light hover:bg-white/5 transition-all duration-300"
         >
           Discover More
         </motion.button>
       </div>
 
       {/* Progress Indicators */}
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-30 flex gap-2">
+      <div className="absolute bottom-28 left-1/2 transform -translate-x-1/2 z-30 flex gap-2">
         {images.map((_, index) => (
           <div
             key={index}
@@ -224,7 +230,7 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Bottom Gradient */}
+      {/* Bottom Gradient moved up to make room for Subscribe component */}
       <div className="absolute bottom-0 h-[25vh] w-full bg-gradient-to-t from-[#2f1717] to-transparent z-20"></div>
     </motion.div>
   )
