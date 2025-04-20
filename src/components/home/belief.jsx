@@ -61,7 +61,7 @@ export default function Belief() {
   const titleWords = titleText.split(" ")
 
   return (
-    <motion.div ref={containerRef} className="relative h-screen w-full overflow-hidden z-1 -mt-24" style={{ opacity }}>
+    <motion.div ref={containerRef} className="relative h-screen w-full overflow-hidden z-1 -mt-72" style={{ opacity }}>
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -74,7 +74,7 @@ export default function Belief() {
 
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjMDAwIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiMyMjIiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=')] opacity-5 z-10"></div>
 
-      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6 max-w-4xl mx-auto">
+      <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6 max-w-4xl mx-auto pt-12">
         <motion.div
           className="w-16 h-px bg-white/30 mb-8"
           initial={{ scaleX: 0, opacity: 0 }}

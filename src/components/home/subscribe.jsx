@@ -2,7 +2,7 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-const sub = '/assets/img/backgroundImages/subscribe.jpg'
+const sub = "/assets/img/backgroundImages/subscribe.jpg"
 import { ArrowRight, Bell } from "lucide-react"
 
 export default function Subscribe() {
@@ -23,15 +23,19 @@ export default function Subscribe() {
   }
 
   return (
-    <div className="relative z-40 py-8 px-4 bg-transparent">
+    <div className="relative z-40 bg-transparent transform -translate-y-36">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="w-[85vw] md:w-[75vw] lg:w-[65vw] xl:w-[60vw] mx-auto relative overflow-hidden rounded-xl shadow-lg"
+        className="w-[85vw] md:w-[75vw] lg:w-[65vw] xl:w-[60vw] mx-auto relative overflow-hidden rounded-xl shadow-xl"
+        style={{
+          minHeight: "240px",
+          height: "auto", // Allow height to grow based on content
+        }}
       >
-        {/* Dark gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-gray-900 to-zinc-900 z-0">
+        {/* Dark gradient background - modified to be more transparent */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-gray-900/90 to-zinc-900/90 z-0">
           {/* Subtle animated overlay */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-emerald-900/10 to-teal-900/10"
@@ -51,7 +55,7 @@ export default function Subscribe() {
 
         <div className="flex flex-col md:flex-row items-center relative z-10">
           {/* Left content */}
-          <div className="w-full md:w-1/2 p-6 md:p-8">
+          <div className="w-full md:w-1/2 p-6 md:p-10">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -75,7 +79,7 @@ export default function Subscribe() {
             </motion.div>
           </div>
 
-          {/* Right content with image */}
+          {/* Right content with image - improved height handling */}
           <div className="w-full md:w-1/2 relative">
             <motion.div
               className="relative"
@@ -83,11 +87,12 @@ export default function Subscribe() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <div className="w-full h-[180px] md:h-[220px] overflow-hidden">
+              <div className="w-full h-[200px] md:h-[240px] lg:h-[280px] xl:h-[320px] overflow-hidden">
                 <img
                   src={sub || "/placeholder.svg"}
                   alt="Subscribe"
                   className="w-full h-full object-cover object-center"
+                  style={{ objectPosition: "center 30%" }} // Adjust vertical position to prevent top cropping
                 />
               </div>
 

@@ -92,7 +92,7 @@ export default function NavBar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled && !isOpen ? "bg-black/80 backdrop-blur-md shadow-lg" : "bg-transparent"
+        scrolled && !isOpen ? "bg-black/10 backdrop-blur-md shadow-lg" : "bg-transparent"
       }`}
     >
       {/* Desktop & Mobile Top Navigation */}
